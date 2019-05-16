@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Puertas 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-row>
+      <ion-col size="3" *ngFor="let img of images; let i=index">
+         <img [src]="img" (click)="openModalGallery(i)"/>   
+      </ion-col>
+    </ion-row> 
+  </div>
+</ion-content>
