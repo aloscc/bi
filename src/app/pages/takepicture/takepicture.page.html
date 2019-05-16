@@ -5,5 +5,22 @@
 </ion-header>
 
 <ion-content>
-
+  <div class="">
+    <ion-row>
+      <ion-col size="2">
+        <ion-button color="primary" (click)="presentActionSheetCamera()"><ion-icon name="camera"></ion-icon></ion-button>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button color="primary" (click)="presentActionSheetImage()"><ion-icon name="images"></ion-icon></ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div class="imagetoAdd">
+    <ion-row>
+      <ion-col size="3" *ngFor="let image of images; let i=index">
+         <img [src]="pathForImage(image.imgpath + image.imgname)" style="width: 55px; height:55px; margin: 4px" (click)="presentPopover($event, image)"/>   
+          <span class="close" (click)="deleteImage(i)" >&times;</span>
+      </ion-col>
+    </ion-row>
+  </div>
 </ion-content>

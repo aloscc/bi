@@ -9,8 +9,7 @@ export class FilemanagerService {
   constructor(
     private file: File,
     private httpClient: HttpClient,
-  ) {
-  }
+  ) { }
 
   checkDirectoriesExist() {
     let created = [];

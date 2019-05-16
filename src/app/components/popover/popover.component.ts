@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { FilemanagerService } from '../../services/filemanager.service';
+import { ImagemanagerService } from '../../services/imagemanager.service';
 
 @Component({
   selector: 'app-popover',
@@ -9,19 +10,27 @@ import { FilemanagerService } from '../../services/filemanager.service';
 })
 export class PopoverComponent implements OnInit {
   @Input("img") img;
+  @Input("typesave") typesave; 
   constructor(
     private popCtrl: PopoverController,
-    private filemanager: FilemanagerService
+    private filemanager: FilemanagerService,
+    private imageManager: ImagemanagerService
   ) {}
 
   ngOnInit() {}
 
   saveImg(despath, imgname) {
-    const url = this.img.src;
     imgname = imgname + (new Date()).getTime();
-    this.filemanager.downloadSync(url, despath, imgname).then((created) => {
-      console.log('>imagen guardada en directorio');
-    });
+    if (this.typesave === 'download') {
+      const url = this.img.src;
+      this.filemanager.downloadSync(url, despath, imgname).then((created) => {
+        console.log('>imagen guardada en directorio');
+      });
+    } else {
+      this.imageManager.copyFileToLocalDir(this.img.imgpath, this.img.imgname, despath, imgname).then(img => {
+        console.log('Se guardo imagen');
+      });
+    }
   }
 
   async close() {

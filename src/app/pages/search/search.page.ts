@@ -13,7 +13,7 @@ export class SearchPage {
   imagevalue = '';
   constructor(
     private scrapingservice: ScrapingService,
-    private popoverCtrl: PopoverController,
+    private popoverCtrl: PopoverController
   ) {
   }
   searchImages() {
@@ -33,7 +33,8 @@ export class SearchPage {
     const popover = await this.popoverCtrl.create({
       component: PopoverComponent,
       componentProps: {
-        img:img
+        img: img,
+        typesave: 'download'
       },
       event: ev,
       translucent: true

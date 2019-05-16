@@ -12,13 +12,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { HTTP } from '@ionic-native/http/ngx';
 import { GoogleImages } from './pages2scrap/googleimages';
 import { File } from '@ionic-native/file/ngx';
+import { ImagePicker } from '@ionic-native/image-picker/ngx';
+import { Camera } from '@ionic-native/camera/ngx';
+import { PopoverComponent } from 'src/app/components/popover/popover.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, PopoverComponent],
+  entryComponents: [PopoverComponent],
   imports: [
-    BrowserModule, 
-    IonicModule.forRoot(), 
+    BrowserModule,
+    IonicModule.forRoot(),
     HttpClientModule,
     AppRoutingModule
   ],
@@ -28,7 +31,9 @@ import { File } from '@ionic-native/file/ngx';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     HTTP,
     GoogleImages,
-    File
+    File,
+    ImagePicker,
+    Camera
   ],
   bootstrap: [AppComponent]
 })

@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SearchPage } from './search.page';
-import { PopoverComponent } from 'src/app/components/popover/popover.component';
 
 @NgModule({
   imports: [
@@ -13,7 +12,7 @@ import { PopoverComponent } from 'src/app/components/popover/popover.component';
     FormsModule,
     RouterModule.forChild([{ path: '', component: SearchPage }]),
   ],
-  entryComponents: [PopoverComponent],
-  declarations: [SearchPage, PopoverComponent]
+  entryComponents: [],
+  declarations: [SearchPage]
 })
 export class SearchPageModule {}
