@@ -18,10 +18,10 @@ export class SearchPage {
   }
   searchImages() {
     console.log('imagen a buscar:' + this.imagevalue);
-    /*this.scrapingservice.scrapUnit(this.imagevalue).subscribe(res => {
+    this.scrapingservice.scrapUnit(this.imagevalue).subscribe(res => {
       this.images = res;
-    });*/
-    this.scrapingservice.scrapSerpApi2(this.imagevalue).then(res => {
+    });
+    /*this.scrapingservice.scrapSerpApi2(this.imagevalue).then(res => {
       if (res['status'] === 301) {
         console.log('Ocurrio un error en el servidor');
       } else {
@@ -29,7 +29,7 @@ export class SearchPage {
       }
     }, error => {
       console.log('Error:' + error);
-    });
+    });*/
   }
 
   keypressEnter(keycode) {
