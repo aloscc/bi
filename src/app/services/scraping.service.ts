@@ -77,5 +77,29 @@ export class ScrapingService {
       retryWhen(err => err)
     );
   }
+
+  public scrapSerpApi(imgsearch) {
+    return new Promise((resolve, reject) => {
+      const url = 'https://serpapi.com/search.json?q=' + imgsearch + '&tbm=isch&ijn=0';
+      const params = {}, headers = {};
+      this.httpnative.get(url, params, headers).then(res => {
+        resolve(res);
+      }, error => {
+        reject(error);
+      });
+    });
+  }
+
+  public scrapSerpApi2(imgsearch) {
+    return new Promise((resolve, reject) => {
+      const url = 'https://serpapi.com/search.json?q=' + imgsearch + '&tbm=isch&ijn=0';
+      const params = {}, headers = {};
+      this.http.get(url).subscribe(res => {
+        resolve(res);
+      }, error => {
+        reject(error);
+      });
+    });
+  }
 }
 

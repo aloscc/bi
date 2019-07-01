@@ -4,10 +4,9 @@
     </ion-button>
 </ion-header>
 <ion-content>
-  <ion-slides pager="true" [options]="slideOpts">
+  <ion-slides pager="true" [options]="slideOpts" class="image-full">
     <ion-slide *ngFor="let img of images">
-      <img [src]="img"/>
-      <h1>Slide</h1>
+      <img [src]="img" class="image-full"/>
     </ion-slide>
   </ion-slides>
 </ion-content>

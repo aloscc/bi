@@ -36,7 +36,7 @@ export class Tab2Page implements OnInit {
     if (img === null) {
       return '';
     } else {
-      let converted = this.win.Ionic.WebView.convertFileSrc(img);
+      const converted = this.win.Ionic.WebView.convertFileSrc(img);
       return converted;
     }
   }
@@ -50,5 +50,5 @@ export class Tab2Page implements OnInit {
       }
     });
     return await modal.present();
-  } 
+  }
 }
